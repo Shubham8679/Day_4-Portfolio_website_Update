@@ -1,0 +1,34 @@
+{
+  "section": {
+    "id": "achievements",
+    "title": "My Achievements",
+    "achievements": [
+      {
+        "title": "Education",
+        "image": "collage.jpg",
+        "alt": "Education Achievement",
+        "description": "Graduated with honors in Electronic and Computer Science."
+      },
+      {
+        "title": "Sports",
+        "image": "sports1.webp",
+        "alt": "Sports Achievement",
+        "description": "Won Intercollege Chess Championship 2023."
+      },
+      {
+        "title": "Social Media",
+        "image": "social_iamge.webp",
+        "alt": "Social Media Achievement",
+        "description": "Grew Instagram Gaming page to 400k followers. YouTube 1M+ Subscribers. Booyah 700+ Members."
+      },
+      {
+        "title": "Online Gaming",
+        "image": "online_game.jpg",
+        "alt": "Gaming Achievement",
+        "description": "Highest Level Player worldwide, Rank #3 in Free-Fire Online Game."
+      }
+    ]
+  }
+}
+
+

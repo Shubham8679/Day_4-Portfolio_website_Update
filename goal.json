@@ -1,0 +1,68 @@
+{
+  "section": {
+    "id": "goals",
+    "title": "My Future Goals",
+    "goals": [
+      {
+        "title": "Graduate Successfully",
+        "image": "graduwate.webp",
+        "alt": "Graduate",
+        "description": "Complete my B.Tech in Computer Science with excellent grades."
+      },
+      {
+        "title": "Master E & CS",
+        "image": "learnai.webp",
+        "alt": "Learn AI",
+        "description": "Develop strong skills in Electronic and Computer Science."
+      },
+      {
+        "title": "Contribute to Open Source",
+        "image": "opensource.webp",
+        "alt": "Open Source",
+        "description": "Give back to the developer community through open-source projects."
+      },
+      {
+        "title": "Start My Own Tech Company",
+        "image": "startup.jpg",
+        "alt": "Startup",
+        "description": "Launch a startup to solve real-world problems using tech."
+      },
+      {
+        "title": "Help People",
+        "image": "helppeople.jpg",
+        "alt": "Help People",
+        "description": "Build solutions that positively impact lives and make technology accessible."
+      },
+      {
+        "title": "Get Internship",
+        "image": "intern.jpg",
+        "alt": "Internship",
+        "description": "Work with leading tech firms to gain hands-on experience."
+      },
+      {
+        "title": "Learn Cybersecurity",
+        "image": "cyber.jpg",
+        "alt": "Learn Cybersecurity",
+        "description": "Understand and protect systems against cyber threats."
+      },
+      {
+        "title": "Win a Hackathon",
+        "image": "hackthon.webp",
+        "alt": "Hackathon",
+        "description": "Participate in coding competitions and win a national hackathon."
+      },
+      {
+        "title": "Improve Public Speaking",
+        "image": "publicspeaking.webp",
+        "alt": "Public Speaking",
+        "description": "Develop confidence in communicating ideas to a large audience."
+      },
+      {
+        "title": "Earn Certifications",
+        "image": "certification.jpg",
+        "alt": "Certifications",
+        "description": "Achieve globally recognized tech certifications (AWS, Google Cloud, etc.)."
+      }
+    ]
+  }
+}

@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ dropdownOpen: false }">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shubham Chaugule Portfolio</title>
+
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<link rel="icon" href="favicon.png" type="image/png" /> 
+
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+
+
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ✅ Alpine.js CDN for animation logic -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+  <style>
+    /* For WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4f46e5, #9333ea); /* Indigo to purple */
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #4338ca, #7e22ce); /* Darker gradient on hover */
+}
+
+
+
+
+  </style>
+
+</head>
+<body class="bg-[#12df9b] font-sans">
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Intro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    body {
+      background-image: url('https://th.bing.com/th/id/OIP.JccIrs7rSkxpciGDes40ygHaEB?w=320&h=180&c=7&r=0&o=5&cb=iwc2&dpr=1.3&pid=1.7'); /* ✅ Replace with your image path */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body class="text-white">
+
+  <!-- Loader with vibrant color -->
+  <div id="loader" class="fixed inset-0 bg-black flex items-center justify-center z-50">
+    <div class="w-12 h-12 border-4 border-white border-t-cyan-400 rounded-full animate-spin"></div>
+  </div>
+
+ <!-- Navigation Bar -->
+<nav class="bg-black bg-opacity-70 px-6 py-4 shadow-lg relative z-10">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <div class="text-cyan-400 text-2xl font-bold">SJCEM</div>
+    
+    <!-- Hamburger Button -->
+    <button id="menu-btn" class="text-white sm:hidden focus:outline-none text-2xl">
+      ☰
+    </button>
+
+    <!-- Nav Links -->
+    <ul id="menu" class="hidden sm:flex flex-col sm:flex-row sm:items-center absolute sm:static top-full left-0 w-full sm:w-auto bg-black sm:bg-transparent bg-opacity-90 sm:bg-opacity-0 space-y-2 sm:space-y-0 sm:space-x-4 mt-4 sm:mt-0 px-6 sm:px-0 py-4 sm:py-0 rounded sm:rounded-none">
+      <li><a href="#" class="text-white px-4 py-2 hover:bg-pink-500 rounded transition"><i class="fa-solid fa-house"></i>Home</a></li>
+      <li><a href="#about" class="text-white px-4 py-2 hover:bg-pink-500 rounded transition"><i class="fa-regular fa-address-card"></i>About Me</a></li>
+      
+      <!-- Dropdown -->
+      <li class="relative group">
+        <button class="text-white px-4 py-2 hover:bg-pink-500 rounded transition"><i class="fa-solid fa-trophy"></i>Achievements</button>
+        <ul class="hidden group-hover:block absolute top-full left-0 w-48 bg-yellow-500 text-black font-semibold rounded shadow-lg z-50">
+          <li><a href="#achievements" class="block px-4 py-2 hover:bg-lime-400 transition">Education</a></li>
+          <li><a href="#achievements" class="block px-4 py-2 hover:bg-lime-400 transition">Sports</a></li>
+          <li><a href="#achievements" class="block px-4 py-2 hover:bg-lime-400 transition">Social Media</a></li>
+          <li><a href="#achievements" class="block px-4 py-2 hover:bg-lime-400 transition">Online Game</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#goals" class="text-white px-4 py-2 hover:bg-pink-500 rounded transition"><i class="fa-solid fa-hands-holding"></i>Future Goal</a></li>
+      <li><a href="#personal-section" class="text-white px-4 py-2 hover:bg-pink-500 rounded transition"><i class="fa-solid fa-person"></i>Personal Side</a></li>
+      <li><a href="practice.html" class="text-white px-4 py-2 hover:bg-pink-500 rounded transition"><i class="fa-solid fa-cart-shopping"></i>Shopping Cart</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Toggle Script -->
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu');
+
+  menuBtn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
+
+  <!-- Typing Animation Section -->
+  <section class="w-full py-10 text-center bg-black bg-opacity-50 backdrop-blur-md shadow-md">
+    <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold">
+      <span class="text-white">I am a</span>
+      <span id="typing" class="text-cyan-300 border-r-4 border-yellow-300 px-2 animate-pulse"></span>
+    </div>
+  </section>
+  
+
+  <!-- Hero Section -->
+  <section class="w-screen flex items-center justify-center px-4 py-10 bg-black bg-opacity-40 backdrop-blur-md">
+    <div class="max-w-4xl w-full flex flex-col items-center text-center space-y-6">
+      <h1 class="text-4xl md:text-5xl font-bold">
+        Hi, I'm <span class="text-yellow-300">Shubham Chaugule</span> 👋
+      </h1>
+      <p class="text-white text-lg max-w-2xl bg-black bg-opacity-50 px-4 py-2 rounded-lg shadow-md">
+        Welcome to my personal portfolio. I'm excited to share my journey, projects, and passion with you.
+      </p>
+
+      <img src="pic1.jpg" alt="Shubham Chaugule" class="w-36 h-36 sm:w-44 sm:h-44 object-cover rounded-full shadow-lg border-4 border-cyan-400" />
+
+      <video class="w-full max-w-md rounded-xl shadow-xl ring-2 ring-pink-300" controls>
+        <source src="intr1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <!-- Typing Animation Script -->
+  <script>
+    const texts = ["Web Developer", "UI Designer", "Freelancer"];
+    let i = 0, j = 0, current = "", isDeleting = false;
+
+    function type() {
+      if (i < texts.length) {
+        if (!isDeleting && j <= texts[i].length) {
+          current = texts[i].substring(0, j++);
+        } else if (isDeleting && j >= 0) {
+          current = texts[i].substring(0, j--);
+        }
+
+        document.getElementById("typing").textContent = current;
+
+        let typingSpeed = isDeleting ? 100 : 150;
+        if (!isDeleting && j === texts[i].length) {
+          isDeleting = true;
+          setTimeout(type, 1000);
+          return;
+        } else if (isDeleting && j === 0) {
+          isDeleting = false;
+          i = (i + 1) % texts.length;
+          setTimeout(type, 500);
+          return;
+        }
+
+        setTimeout(type, typingSpeed);
+      }
+    }
+    type();
+  </script>
+
+  <!-- Remove loader after page loads -->
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('loader').style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Me - Animated Tabs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Background image and overlay */
+    #about {
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: #1e40af; /* Tailwind blue-700 */
+    }
+
+    #about::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.85); /* white overlay for readability */
+      z-index: 0;
+    }
+
+    /* Make content above overlay */
+    #about > div {
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Animated fade-in */
+    .fade-enter {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .fade-enter-active {
+      opacity: 1;
+    }
+    .fade-leave {
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .fade-leave-active {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div id="about" class="w-full py-12 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
+    
+    <!-- Image Column -->
+    <div class="flex-shrink-0 w-full md:w-1/2">
+      <img src="pic2.jpg" alt="About Me" class="w-full h-auto rounded-lg shadow-md" />
+    </div>
+
+    <!-- Content Column -->
+    <div class="w-full md:w-1/2">
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4 text-blue-700">About Me</h1>
+      <p class="text-blue-900 text-base sm:text-lg mb-6">
+        I am Shubham Chandrakant Chaugule. I am pursuing Electronic and Computer Science Engineering at St. John College Of Engineering and Management.
+      </p>
+
+      <!-- Tab Buttons -->
+      <div class="flex flex-wrap gap-4 mb-6">
+        <button
+          class="tab-links active-link text-sm sm:text-base font-medium px-4 py-2 rounded bg-blue-200 text-blue-800 hover:bg-blue-300 transition"
+          onclick="openTab('skills', event)">Name/Location</button>
+        <button
+          class="tab-links text-sm sm:text-base font-medium px-4 py-2 rounded bg-blue-200 text-blue-800 hover:bg-blue-300 transition"
+          onclick="openTab('experience', event)">Education</button>
+        <button
+          class="tab-links text-sm sm:text-base font-medium px-4 py-2 rounded bg-blue-200 text-blue-800 hover:bg-blue-300 transition"
+          onclick="openTab('education', event)">Language Known</button>
+      </div>
+
+      <!-- Tab Contents -->
+      <div id="skills" class="tab-contents">
+        <ul class="list-disc list-inside space-y-2 text-blue-900">
+          <li><span class="font-semibold">Name:</span> Shubham Chandrakant Chaugule</li>
+          <li><span class="font-semibold">Location:</span> Vasai-Nallasopara</li>
+          <li><span class="font-semibold">Landmark:</span> Seth Vidyamandir</li>
+        </ul>
+      </div>
+
+      <div id="experience" class="tab-contents hidden opacity-0 transition-opacity duration-500">
+        <ul class="list-disc list-inside space-y-2 text-blue-900">
+          <li><span class="font-semibold">HSC:</span> VIVA College</li>
+          <li><span class="font-semibold">Software Engineering Diploma:</span> I-Tech Computer Education</li>
+          <li><span class="font-semibold">Electronics and Computer Science Engineering:</span> St. John College Of Engineering and Management</li>
+        </ul>
+      </div>
+
+      <div id="education" class="tab-contents hidden opacity-0 transition-opacity duration-500">
+        <ul class="list-disc list-inside space-y-2 text-blue-900">
+          <li><span class="font-semibold">English:</span> Advanced</li>
+          <li><span class="font-semibold">Marathi:</span> Advanced</li>
+          <li><span class="font-semibold">Hindi:</span> Advanced</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const tabLinks = document.querySelectorAll(".tab-links");
+  const tabContents = document.querySelectorAll(".tab-contents");
+
+  function openTab(tabName, event) {
+    // Reset all tabs styles
+    tabLinks.forEach(link => {
+      link.classList.remove("active-link", "bg-blue-300", "text-white");
+      link.classList.add("bg-blue-200", "text-blue-800");
+    });
+
+    // Hide all contents with fade-out effect
+    tabContents.forEach(content => {
+      content.classList.add("hidden");
+      content.classList.remove("opacity-100");
+      content.classList.add("opacity-0");
+    });
+
+    // Activate clicked tab
+    event.currentTarget.classList.add("active-link", "bg-blue-300", "text-white");
+    event.currentTarget.classList.remove("bg-blue-200", "text-blue-800");
+
+    // Show clicked tab content with fade-in
+    const activeContent = document.getElementById(tabName);
+    activeContent.classList.remove("hidden");
+    // Use setTimeout to trigger CSS opacity transition
+    setTimeout(() => {
+      activeContent.classList.remove("opacity-0");
+      activeContent.classList.add("opacity-100");
+    }, 50);
+  }
+
+  // Initialize first tab active on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    tabLinks[0].click();
+  });
+</script>
+
+</body>
+</html>
+
+<!-- <section id="achievements" class="py-12 px-4 bg-gray-50">
+  <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-blue-700 mb-10">My Achievements</h2>
+
+  <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8">
+    
+    <div class="achievement-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center">
+      <img src="collage.jpg" alt="Education Achievement"
+           class="w-full h-40 object-cover rounded-lg mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800">Education</h3>
+      <p class="text-gray-600 mt-2">Graduated with honors in Electronic and Computer Science.</p>
+    </div>
+
+      
+    <div class="achievement-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center">
+      <img src="sports1.webp" alt="Sports Achievement"
+           class="w-full h-40 object-cover rounded-lg mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800">Sports</h3>
+      <p class="text-gray-600 mt-2">Won Intercollege Chess Championship 2023.</p>
+    </div>
+
+ 
+    <div class="achievement-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center">
+      <img src="social_iamge.webp" alt="Social Media Achievement"
+           class="w-full h-40 object-cover rounded-lg mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800">Social Media</h3>
+      <p class="text-gray-600 mt-2">
+        Grew Instagram Gaming page to 400k followers. YouTube 1M+ Subscribers. Booyah 700+ Members.
+      </p>
+    </div>
+
+     
+    <div class="achievement-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center">
+      <img src="online_game.jpg" alt="Gaming Achievement"
+           class="w-full h-40 object-cover rounded-lg mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800">Online Gaming</h3>
+      <p class="text-gray-600 mt-2">
+        Highest Level Player worldwide, Rank #3 in Free-Fire Online Game.
+      </p>
+    </div>
+  </div>
+</section>  -->
+<!-- Add this inside your HTML file -->
+<section id="achievements" class="py-12 px-4 bg-gray-50">
+  <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-blue-700 mb-10">My Achievements</h2>
+  <div id="achievement-container" class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8">
+    <!-- Achievement cards will be inserted here -->
+  </div>
+</section>
+
+<script>
+  // Load JSON data and create achievement cards
+  fetch('achievements.json')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('achievement-container');
+
+      data.section.achievements.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'achievement-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center';
+
+        card.innerHTML = `
+          <img src="${item.image}" alt="${item.alt}" class="w-full h-40 object-cover rounded-lg mb-4" />
+          <h3 class="text-xl font-semibold text-gray-800">${item.title}</h3>
+          <p class="text-gray-600 mt-2">${item.description}</p>
+        `;
+
+        container.appendChild(card);
+      });
+    })
+    .catch(error => console.error('Error loading achievements:', error));
+</script>
+
+ <section id="goals" class="py-12 px-4 bg-gradient-to-br from-blue-50 to-purple-100">
+  <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-blue-700 mb-10">My Future Goals</h2>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8"> 
+    <div class="goal-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center">
+      <img src="graduwate.webp" alt="Graduate" class="w-full h-40 object-cover rounded-lg mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800">Graduate Successfully</h3>
+      <p class="text-gray-600 mt-2">Complete my B.Tech in Computer Science with excellent grades.</p>
+    </div>
+
+    <div class="goal-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center">
+      <img src="learnai.webp" alt="Learn AI" class="w-full h-40 object-cover rounded-lg mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800">Master E & CS</h3>
+      <p class="text-gray-600 mt-2">Develop strong skills in Electronic and Computer Science.</p>
+    </div>
+
+    <div class="goal-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center">
+      <img src="opensource.webp" alt="Open Source" class="w-full h-40 object-cover rounded-lg mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800">Contribute to Open Source</h3>
+      <p class="text-gray-600 mt-2">Give back to the developer community through open-source projects.</p>
+    </div>
+
+    <div class="goal-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center">
+      <img src="startup.jpg" alt="Startup" class="w-full h-40 object-cover rounded-lg mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800">Start My Own Tech Company</h3>
+      <p class="text-gray-600 mt-2">Launch a startup to solve real-world problems using tech.</p>
+    </div>
+
+    <div class="goal-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center">
+      <img src="helppeople.jpg" alt="Help People" class="w-full h-40 object-cover rounded-lg mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800">Help People</h3>
+      <p class="text-gray-600 mt-2">Build solutions that positively impact lives and make technology accessible.</p>
+    </div>
+
+    <div class="goal-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center">
+      <img src="intern.jpg" alt="Internship" class="w-full h-40 object-cover rounded-lg mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800">Get Internship</h3>
+      <p class="text-gray-600 mt-2">Work with leading tech firms to gain hands-on experience.</p>
+    </div>
+
+    <div class="goal-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center">
+      <img src="cyber.jpg" alt="Learn Cybersecurity" class="w-full h-40 object-cover rounded-lg mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800">Learn Cybersecurity</h3>
+      <p class="text-gray-600 mt-2">Understand and protect systems against cyber threats.</p>
+    </div>
+
+    <div class="goal-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center">
+      <img src="hackthon.webp" alt="Hackathon" class="w-full h-40 object-cover rounded-lg mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800">Win a Hackathon</h3>
+      <p class="text-gray-600 mt-2">Participate in coding competitions and win a national hackathon.</p>
+    </div>
+
+    <div class="goal-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center">
+      <img src="publicspeaking.webp" alt="Public Speaking" class="w-full h-40 object-cover rounded-lg mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800">Improve Public Speaking</h3>
+      <p class="text-gray-600 mt-2">Develop confidence in communicating ideas to a large audience.</p>
+    </div>
+
+    <div class="goal-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center">
+      <img src="certification.jpg" alt="Certifications" class="w-full h-40 object-cover rounded-lg mb-4" />
+      <h3 class="text-xl font-semibold text-gray-800">Earn Certifications</h3>
+      <p class="text-gray-600 mt-2">Achieve globally recognized tech certifications (AWS, Google Cloud, etc.).</p>
+    </div>
+
+  </div>
+</section> 
+
+<script>
+  // Load and render achievements from JSON
+  fetch('achievement.json')
+    .then(response => response.json())
+    .then(data => {
+      const goalsSection = document.querySelector('#goals .grid');
+      goalsSection.innerHTML = ''; // Clear static content if needed
+
+      data.section.goals.forEach(goal => {
+        const goalBox = document.createElement('div');
+        goalBox.className = 'goal-box bg-white rounded-xl shadow-md hover:shadow-xl transition p-4 text-center';
+
+        goalBox.innerHTML = `
+          <img src="${goal.image}" alt="${goal.alt}" class="w-full h-40 object-cover rounded-lg mb-4" />
+          <h3 class="text-xl font-semibold text-gray-800">${goal.title}</h3>
+          <p class="text-gray-600 mt-2">${goal.description}</p>
+        `;
+
+        goalsSection.appendChild(goalBox);
+      });
+    })
+    .catch(error => console.error('Error loading JSON:', error));
+</script>
+
+
+
+
+<section id="personal-section" class="py-12 px-4 bg-gradient-to-br from-pink-100 to-blue-100">
+  <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-purple-800 mb-10">My Personal Side</h2>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    
+    <!-- Hobbies Card -->
+    <div class="card bg-white shadow-md hover:shadow-xl rounded-xl p-5">
+      <img src="hobbies.webp" alt="Hobbies" class="w-full h-40 object-cover rounded-lg mb-4">
+      <h3 class="text-xl font-bold text-gray-800 mb-2">My Hobbies</h3>
+      <ul class="list-disc list-inside text-gray-600 space-y-1">
+        <li><strong>Coding:</strong> I enjoy building things and solving challenges.</li>
+        <li><strong>Sketching:</strong> Helps me relax and express creativity.</li>
+        <li><strong>Gaming:</strong> Boosts my reflexes and focus.</li>
+        <li><strong>Reading:</strong> Enhances my knowledge and imagination.</li>
+      </ul>
+    </div>
+
+    <!-- Role Model Card -->
+    <div class="card bg-white shadow-md hover:shadow-xl rounded-xl p-5">
+      <img src="drabj.webp" alt="Role Model" class="w-full h-40 object-cover rounded-lg mb-4">
+      <h3 class="text-xl font-bold text-gray-800 mb-2">My Role Model</h3>
+      <p class="text-gray-600">
+        <strong>Dr. A.P.J. Abdul Kalam</strong> – A brilliant scientist and inspirational leader who rose from humble beginnings to become the President of India. His words and actions inspire me to dream big and stay humble.
+      </p>
+    </div>
+
+    <!-- Favorite Book Card -->
+    <div class="card bg-white shadow-md hover:shadow-xl rounded-xl p-5">
+      <img src="favbook.jpg" alt="Favorite Book" class="w-full h-40 object-cover rounded-lg mb-4">
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Favorite Book</h3>
+      <p class="text-gray-600">
+        <strong>“Atomic Habits” by James Clear</strong> – This book taught me how small changes in daily routine can lead to remarkable success over time.
+      </p>
+    </div>
+
+    <!-- Favorite Website Card -->
+    <div class="card bg-white shadow-md hover:shadow-xl rounded-xl p-5">
+      <img src="greekofgreeks.webp" alt="Favorite Website" class="w-full h-40 object-cover rounded-lg mb-4">
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Favorite Website</h3>
+      <p class="text-gray-600">
+        <strong>GeeksforGeeks</strong> – A great learning platform for coding, problem-solving, and technical interview preparation. I visit it daily!
+      </p>
+    </div>
+
+    <!-- Favorite Startup Card -->
+    <div class="card bg-white shadow-md hover:shadow-xl rounded-xl p-5">
+      <img src="spacex.jpg" alt="Favorite Startup" class="w-full h-40 object-cover rounded-lg mb-4">
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Favorite Startup</h3>
+      <p class="text-gray-600">
+        <strong>SpaceX</strong> – Elon Musk’s innovative space company that inspires me to think beyond limits and explore impossible ideas.
+      </p>
+    </div>
+
+    <!-- Volunteering Card -->
+    <div class="card bg-white shadow-md hover:shadow-xl rounded-xl p-5">
+      <img src="ngo.webp" alt="Volunteering" class="w-full h-40 object-cover rounded-lg mb-4">
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Volunteering Experience</h3>
+      <p class="text-gray-600">
+        I volunteered with a local NGO to teach underprivileged kids basic computer skills. It was a rewarding experience that made me more empathetic and socially aware.
+      </p>
+    </div>
+
+  </div>
+</section>
+<section id="contact" class="bg-gray-100 py-12 px-4">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-8">Contact Me</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Contact Info -->
+      <div class="space-y-6 text-lg text-gray-700">
+        <!-- Phone -->
+        <div>
+          <span class="font-semibold">📞 Phone:</span>
+          <a href="tel:+91 9307168129" class="text-blue-600 hover:underline block">+91 9307168129</a>
+        </div>
+
+        <!-- WhatsApp -->
+        <div>
+          <span class="font-semibold">💬 WhatsApp:</span>
+          <a href="https://wa.me/919307168129" target="_blank" class="text-green-600 hover:underline block">
+            Click to Chat on WhatsApp
+          </a>
+        </div>
+
+        <!-- Email -->
+        <div>
+          <span class="font-semibold">📧 Email:</span>
+          <a href="123shubham7005@sjcem.edu.in" class="text-red-600 hover:underline block">
+            123shubham7005@sjcem.edu.in
+         
+          </a>
+        </div>
+
+        <!-- Location -->
+        <div>
+          <span class="font-semibold">📍 Location:</span>
+          <p>Vasai - Nallasopara, Maharashtra, India</p>
+        </div>
+      </div>
+
+      <!-- Google Map Embed -->
+      <div class="w-full h-64 md:h-full">
+        <iframe
+          class="w-full h-full rounded-xl shadow-md"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.6030079694356!2d72.8310595146946!3d19.17413498702837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0b4a14d0c0f%3A0x6c7403777f61f7e0!2sVasai%20-%20Nallasopara%20Rd%2C%20Vasai%20East%2C%20Vasai-Virar%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1685371234567"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form Section -->
+<section id="contact-form" class="bg-white py-10 px-6 rounded-xl shadow-md max-w-2xl mx-auto my-10" style="background-color: white;">
+  <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Send Me a Message</h2>
+
+  <form action="https://formspree.io/f/xrbqdvow" method="POST" class="space-y-5 bg-white">
+    
+    <!-- Name -->
+    <div>
+      <label for="name" class="block text-gray-700 font-medium mb-1">Name</label>
+      <input 
+        type="text" 
+        name="name" 
+        required 
+        class="w-full px-4 py-2 border border-gray-300 rounded-md 
+               focus:outline-none focus:ring-2 focus:ring-blue-500 
+               text-gray-800 bg-white"
+      />
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
+      <input 
+        type="email" 
+        name="email" 
+        id="email" 
+        required 
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 bg-white"
+      />
+    </div>
+
+    <!-- Message -->
+    <div>
+      <label for="message" class="block text-gray-700 font-medium mb-1">Message</label>
+      <textarea 
+        name="message" 
+        id="message" 
+        rows="5" 
+        required 
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 bg-white"
+      ></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center">
+      <button 
+        type="submit" 
+        class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition"
+      >
+        Send
+      </button>
+    </div>
+  </form>
+</section>
+
+
+
+
+<footer id="footer" class="bg-gray-900 text-white py-10 px-4">
+  <div class="max-w-5xl mx-auto text-center space-y-6">
+
+    <h3 class="text-2xl sm:text-3xl font-bold">Connect with Me</h3>
+    <p class="text-gray-300">Let's build something amazing together! Follow me on social platforms below.</p>
+
+    <div class="flex justify-center space-x-6 flex-wrap">
+      <a href="https://www.linkedin.com/in/shubham-chaugule-06b882321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+        <img src="linkkdln.jpg" alt="LinkedIn" class="w-10 h-10 rounded-full hover:scale-110 transition-transform duration-200">
+      </a>
+      <a href="https://github.com/Shubham8679" target="_blank">
+        <img src="github.png" alt="GitHub" class="w-10 h-10 rounded-full hover:scale-110 transition-transform duration-200">
+      </a>
+      <a href="https://twitter.com/" target="_blank">
+        <img src="twitter.webp" alt="Twitter" class="w-10 h-10 rounded-full hover:scale-110 transition-transform duration-200">
+      </a>
+      <a href="https://instagram.com/shubham_chaugule69" target="_blank">
+        <img src="instagram.jpg" alt="Instagram" class="w-10 h-10 rounded-full hover:scale-110 transition-transform duration-200">
+      </a>
+    </div>
+
+    <p class="text-sm text-gray-400">© 2025 Shubham Chaugule | All Rights Reserved</p>
+  </div>
+</footer>
+
+
+
+
+
+
+<script>
+  const tabLinks = document.querySelectorAll(".tab-links");
+  const tabContents = document.querySelectorAll(".tab-contents");
+
+  function opentab(tabname, event) {
+    tabLinks.forEach(link => {
+      link.classList.remove("active-link", "bg-blue-300", "text-white");
+      link.classList.add("bg-blue-100", "text-blue-700");
+    });
+    tabContents.forEach(content => content.classList.add("hidden"));
+
+    event.currentTarget.classList.add("active-link", "bg-blue-300", "text-white");
+    event.currentTarget.classList.remove("bg-blue-100", "text-blue-700");
+
+    document.getElementById(tabname).classList.remove("hidden");
+  }
+
+  // Initialize first tab active on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    tabLinks[0].click();
+  });
+</script>
+<!-- Form Script -->
+ <script>
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent default form submission
+
+    // Collect form data
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    // Log data (you can replace this with API call or service)
+    console.log("Form Data Submitted:");
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Message:", message);
+
+    // Optional: Alert user
+    alert("Thanks! Your message has been received.");
+
+    // Optional: Clear form
+    this.reset();
+  });
+</script>
+<!-- dark/bright -->
+ <script>
+    const toggleButton = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      htmlElement.classList.add('dark');
+    }
+
+    toggleButton.addEventListener('click', () => {
+      htmlElement.classList.toggle('dark');
+      localStorage.setItem('theme', htmlElement.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+ 
+
+
+
+</body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopEase - Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Basic styling for the cart sidebar */
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 350px; /* Adjust as needed */
+      max-width: 90%; /* Ensure it's responsive on smaller screens */
+      height: 100%;
+      background-color: white;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-sidebar.open {
+      transform: translateX(0);
+    }
+    .cart-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 999;
+      display: none;
+    }
+    .cart-overlay.open {
+      display: block;
+    }
+    /* Style for active category filter button */
+    .filter-btn.active {
+        background-color: #3b82f6; /* Tailwind blue-600 */
+        color: white;
+    }
+  </style>
+</head>
+<body class="m-0 p-0">
+
+  <header class="bg-white shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+    <div class="flex items-center space-x-2">
+      <i class="fas fa-gem text-blue-600 text-2xl"></i>
+      <span class="text-xl font-bold">ShopEase</span>
+    </div>
+
+    <nav class="hidden md:flex space-x-6 items-center text-gray-700 font-medium">
+      <a href="index.html" class="hover:text-blue-600"></i>Home</a>
+      <a href="#categories" class="hover:text-blue-600">Categories</a>
+      <a href="#shop" class="hover:text-blue-600">Features</a>
+      <a href="#footer" class="hover:text-blue-600">Contact</a>
+
+      <div class="flex space-x-4 ml-4 text-xl">
+        <a href="#" class="hover:text-blue-600"><i class="fas fa-search"></i></a>
+        <a href="#" id="open-cart-desktop" class="hover:text-blue-600 relative">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count-desktop" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+        </a>
+        <a href="#" class="hover:text-blue-600"><i class="fas fa-heart"></i></a>
+      </div>
+    </nav>
+
+    <button id="menu-btn" class="md:hidden text-2xl text-gray-700">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-4 text-gray-700 font-medium">
+    <a href="index.html" class="block hover:text-blue-600">Home</a>
+    <a href="#categories" class="block hover:text-blue-600">Categories</a>
+    <a href="#shop" class="block hover:text-blue-600">Features</a>
+    <a href="#footer" class="block hover:text-blue-600">Contact</a>
+    
+    <div class="flex space-x-6 text-xl pt-2">
+      <a href="#" class="hover:text-blue-600"><i class="fas fa-search"></i></a>
+      <a href="#" id="open-cart-mobile" class="hover:text-blue-600 relative">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count-mobile" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+      </a>
+      <a href="#" class="hover:text-blue-600"><i class="fas fa-heart"></i></a>
+    </div>
+  </div>
+</header>
+
+
+  <section 
+    class="relative h-screen w-full bg-cover bg-center flex items-center justify-center text-white" 
+    style="background-image: url('https://iv1.lisimg.com/image/21882070/740full-ariadna-majewska.jpg'); background-position: top;"
+  id="section">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Style that Speaks</h1>
+      <p class="text-lg md:text-xl mb-6">Discover the latest fashion trends and accessories just for you.</p>
+      <a href="categories.html">
+        <!-- <button class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300" >
+          Shop Now
+        </button> -->
+      </a>
+    </div>
+  </section> 
+  
+  <section class="py-16 px-4 bg-white" id="categories">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Shop by Category</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-100 rounded-2xl shadow-lg overflow-hidden flex flex-col">
+          <img src="https://png.pngtree.com/png-clipart/20231006/original/pngtree-3d-rendering-fashion-shopping-men-png-image_13127483.png" alt="Men's Collection" class="w-full h-64 object-cover" />
+          <div class="p-6 text-center flex-grow flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Men's Collection</h3>
+              <p class="text-gray-600 mb-4">Trendy and classic outfits for every occasion.</p>
+            </div>
+            <a href="/shop.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white py-2 px-5 rounded-full">Shop Now</a>
+          </div>
+        </div>
+
+        <div class="bg-gray-100 rounded-2xl shadow-lg overflow-hidden flex flex-col">
+          <img src="https://th.bing.com/th/id/OIP.9N-YoaY6PvOjaxKQtovyNwHaJ6?cb=iwp2&w=1600&h=2143&rs=1&pid=ImgDetMain" alt="Women's Collection" class="w-full h-64 object-cover" />
+          <div class="p-6 text-center flex-grow flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Women's Collection</h3>
+              <p class="text-gray-600 mb-4">Elegant styles and new fashion trends for women.</p>
+            </div>
+            <a href="/shop.html" class="inline-block bg-pink-500 hover:bg-pink-600 text-white py-2 px-5 rounded-full">Shop Now</a>
+          </div>
+        </div>
+
+        <div class="bg-gray-100 rounded-2xl shadow-lg overflow-hidden flex flex-col">
+          <img src="https://t3.ftcdn.net/jpg/05/33/25/88/360_F_533258844_moMmY2FoP1O0PwkK0mSMQmz18v8HadFP.jpg" alt="Kids' Collection" class="w-full h-64 object-cover" />
+          <div class="p-6 text-center flex-grow flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Kids' Collection</h3>
+              <p class="text-gray-600 mb-4">Colorful and comfy outfits for little stars.</p>
+            </div>
+            <a href="/shop.html" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-5 rounded-full">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="py-16 px-4 bg-white" id="shop">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Featured Products</h2>
+
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <button class="filter-btn active bg-blue-600 text-white py-2 px-5 rounded-full shadow hover:bg-blue-700 transition" data-category="all">All</button>
+      <button class="filter-btn bg-gray-200 text-gray-700 py-2 px-5 rounded-full shadow hover:bg-gray-300 transition" data-category="men">Men</button>
+      <button class="filter-btn bg-gray-200 text-gray-700 py-2 px-5 rounded-full shadow hover:bg-gray-300 transition" data-category="women">Women</button>
+      <button class="filter-btn bg-gray-200 text-gray-700 py-2 px-5 rounded-full shadow hover:bg-gray-300 transition" data-category="kids">Kids</button>
+      <button class="filter-btn bg-gray-200 text-gray-700 py-2 px-5 rounded-full shadow hover:bg-gray-300 transition" data-category="accessories">Accessories</button>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="shopping-cards">
+      <div class="product-card bg-gray-100 rounded-lg shadow hover:shadow-lg transition p-4" data-category="men">
+        <img src="https://th.bing.com/th/id/OIP.GisNoMz7K8NZTkJ-V_6alAAAAA?w=120&h=182&c=7&r=0&o=7&cb=iwp2&pid=1.7&rm=3" alt="T-Shirt" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold text-gray-800 product-name">Casual T-Shirt</h3>
+        <p class="text-blue-600 font-bold mt-1 product-price">$25.00</p>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full add-to-cart-btn"
+                data-product-id="1" data-product-name="Casual T-Shirt" data-product-price="25.00">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card bg-gray-100 rounded-lg shadow hover:shadow-lg transition p-4" data-category="men">
+        <img src="https://th.bing.com/th/id/OIP.1oCIpfgIhvCOQW8G-S1dVAHaLG?w=204&h=305&c=8&rs=1&qlt=90&r=0&o=6&pid=3.1&rm=2" alt="Sneakers" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold text-gray-800 product-name">Stylish Sneakers</h3>
+        <p class="text-blue-600 font-bold mt-1 product-price">$60.00</p>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full add-to-cart-btn"
+                data-product-id="2" data-product-name="Stylish Sneakers" data-product-price="60.00">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card bg-gray-100 rounded-lg shadow hover:shadow-lg transition p-4" data-category="accessories">
+        <img src="https://th.bing.com/th/id/OIP.KzpqgOEteRSDHw2OuCXYmAHaFi?w=194&h=180&c=7&r=0&o=7&cb=iwp2&pid=1.7&rm=3" alt="Watch" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold text-gray-800 product-name">Smart Watch</h3>
+        <p class="text-blue-600 font-bold mt-1 product-price">$120.00</p>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full add-to-cart-btn"
+                data-product-id="3" data-product-name="Smart Watch" data-product-price="120.00">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card bg-gray-100 rounded-lg shadow hover:shadow-lg transition p-4" data-category="accessories">
+        <img src="https://th.bing.com/th/id/OIP.W5zHaAa7s1l2hYOCj3Rt6QHaFj?w=247&h=185&c=7&r=0&o=7&cb=iwp2&pid=1.7&rm=3" alt="Backpack" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold text-gray-800 product-name">Trendy Backpack</h3>
+        <p class="text-blue-600 font-bold mt-1 product-price">$45.00</p>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full add-to-cart-btn"
+                data-product-id="4" data-product-name="Trendy Backpack" data-product-price="45.00">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card bg-gray-100 rounded-lg shadow hover:shadow-lg transition p-4" data-category="accessories">
+        <img src="https://th.bing.com/th/id/OIP.KfwG9m1ECsu0KHuugcAOZgHaE8?w=234&h=180&c=7&r=0&o=7&cb=iwp2&pid=1.7&rm=3" alt="Sunglasses" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold text-gray-800 product-name">Sunglasses</h3>
+        <p class="text-blue-600 font-bold mt-1 product-price">$30.00</p>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full add-to-cart-btn"
+                data-product-id="5" data-product-name="Sunglasses" data-product-price="30.00">
+          Add to Cart
+        </button>
+      </div>
+      
+      <div class="product-card bg-gray-100 rounded-lg shadow hover:shadow-lg transition p-4" data-category="men">
+        <img src="https://images.pexels.com/photos/12725051/pexels-photo-12725051.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Red Sneakers" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold text-gray-800 product-name">Red Sneakers</h3>
+        <p class="text-blue-600 font-bold mt-1 product-price">$75.00</p>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full add-to-cart-btn"
+                data-product-id="6" data-product-name="Red Sneakers" data-product-price="75.00">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card bg-gray-100 rounded-lg shadow hover:shadow-lg transition p-4" data-category="accessories">
+        <img src="https://images.pexels.com/photos/167703/pexels-photo-167703.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Leather Wallet" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold text-gray-800 product-name">Leather Wallet</h3>
+        <p class="text-blue-600 font-bold mt-1 product-price">$40.00</p>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full add-to-cart-btn"
+                data-product-id="7" data-product-name="Leather Wallet" data-product-price="40.00">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card bg-gray-100 rounded-lg shadow hover:shadow-lg transition p-4" data-category="men">
+        <img src="https://images.pexels.com/photos/1785779/pexels-photo-1785779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Denim Jacket" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold text-gray-800 product-name">Denim Jacket</h3>
+        <p class="text-blue-600 font-bold mt-1 product-price">$85.00</p>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full add-to-cart-btn"
+                data-product-id="8" data-product-name="Denim Jacket" data-product-price="85.00">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card bg-gray-100 rounded-lg shadow hover:shadow-lg transition p-4" data-category="men">
+        <img src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Running Shoes" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold text-gray-800 product-name">Running Shoes</h3>
+        <p class="text-blue-600 font-bold mt-1 product-price">$90.00</p>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full add-to-cart-btn"
+                data-product-id="9" data-product-name="Running Shoes" data-product-price="90.00">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card bg-gray-100 rounded-lg shadow hover:shadow-lg transition p-4" data-category="men">
+        <img src="https://images.pexels.com/photos/2315197/pexels-photo-2315197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="White T-Shirt" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold text-gray-800 product-name">White T-Shirt</h3>
+        <p class="text-blue-600 font-bold mt-1 product-price">$20.00</p>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full add-to-cart-btn"
+                data-product-id="10" data-product-name="White T-Shirt" data-product-price="20.00">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card bg-gray-100 rounded-lg shadow hover:shadow-lg transition p-4" data-category="men">
+        <img src="https://images.pexels.com/photos/52518/jeans-pants-blue-shop-52518.jpeg" alt="Blue Jeans" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold text-gray-800 product-name">Blue Jeans</h3>
+        <p class="text-blue-600 font-bold mt-1 product-price">$55.00</p>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full add-to-cart-btn"
+                data-product-id="11" data-product-name="Blue Jeans" data-product-price="55.00">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card bg-gray-100 rounded-lg shadow hover:shadow-lg transition p-4" data-category="men">
+        <img src="https://images.pexels.com/photos/9929575/pexels-photo-9929575.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Formal Shirt" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold text-gray-800 product-name">Formal Shirt</h3>
+        <p class="text-blue-600 font-bold mt-1 product-price">$40.00</p>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full add-to-cart-btn"
+                data-product-id="12" data-product-name="Formal Shirt" data-product-price="40.00">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card bg-gray-100 rounded-lg shadow hover:shadow-lg transition p-4" data-category="women">
+        <img src="https://images.pexels.com/photos/1449667/pexels-photo-1449667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Women's Summer Dress" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold text-gray-800 product-name">Summer Dress</h3>
+        <p class="text-blue-600 font-bold mt-1 product-price">$65.00</p>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full add-to-cart-btn"
+                data-product-id="13" data-product-name="Summer Dress" data-product-price="65.00">
+          Add to Cart
+        </button>
+      </div>
+
+      <div class="product-card bg-gray-100 rounded-lg shadow hover:shadow-lg transition p-4" data-category="kids">
+        <img src="https://images.pexels.com/photos/7887173/pexels-photo-7887173.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Kids' Building Blocks" class="w-full h-64 object-cover mb-4 rounded">
+        <h3 class="text-lg font-semibold text-gray-800 product-name">Building Blocks</h3>
+        <p class="text-blue-600 font-bold mt-1 product-price">$30.00</p>
+        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full add-to-cart-btn"
+                data-product-id="14" data-product-name="Building Blocks" data-product-price="30.00">
+          Add to Cart
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <section class="bg-blue-600 text-white py-16 px-4 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Join Our Newsletter</h2>
+      <p class="text-lg md:text-xl mb-8">Stay updated with the latest trends and exclusive offers.</p>
+      <form class="flex flex-col md:flex-row justify-center items-center gap-4">
+        <input 
+          type="email" 
+          placeholder="Enter your email" 
+          class="w-full md:w-auto px-6 py-3 rounded-full text-gray-800 focus:outline-none"
+        />
+        <button 
+          type="submit" 
+          class="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-gray-800 text-gray-400 py-10 px-4" id="footer">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div>
+      <h3 class="text-xl font-semibold text-white mb-4">ShopEase</h3>
+      <p class="text-sm mb-4">Sjcem Ecs Department shop for the latest fashion trends and accessories.</p>
+      <div class="flex items-center space-x-2 text-sm">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Palghar Sjcem collage 401209</span>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
+      <ul class="space-y-2">
+        <li><a href="#section" class="hover:text-white transition">Home</a></li>
+        <li><a href="categories.html" class="hover:text-white transition">Categories</a></li>
+        <li><a href="#features" class="hover:text-white transition">Features</a></li>
+        <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-semibold text-white mb-4">Legal & Support</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-white transition">FAQs</a></li>
+        <li><a href="#" class="hover:text-white transition">Shipping & Returns</a></li>
+        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-white transition">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-semibold text-white mb-4">Contact Us</h3>
+      <p class="text-sm mb-2">Email: 123shubham@sjcem.edu.in</p>
+      <p class="text-sm mb-4">Phone: +91 930716812</p>
+
+      <div class="flex space-x-4 text-xl">
+        <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="hover:text-white"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="hover:text-white"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="border-t border-gray-700 mt-10 pt-6 text-center text-sm text-gray-500">
+    &copy; 2025 ShopEase. All rights reserved.
+  </div>
+</footer>
+
+<div id="cart-sidebar" class="cart-sidebar">
+  <div class="flex justify-between items-center p-4 border-b">
+    <h2 class="text-xl font-bold">Your Shopping Cart</h2>
+    <button id="close-cart" class="text-gray-600 hover:text-gray-800 text-2xl">&times;</button>
+  </div>
+  <div id="cart-items" class="flex-grow p-4 overflow-y-auto">
+    <p class="text-gray-500 text-center" id="empty-cart-message">Your cart is empty.</p>
+  </div>
+  <div class="p-4 border-t">
+    <div class="flex justify-between items-center mb-4">
+      <span class="text-lg font-bold">Total:</span>
+      <span id="cart-total" class="text-lg font-bold text-blue-600">$0.00</span>
+    </div>
+    <button id="clear-cart" class="w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded-full mb-2">Clear Cart</button>
+    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-full">Checkout</button>
+  </div>
+</div>
+
+<div id="cart-overlay" class="cart-overlay"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const cartCountDesktopSpan = document.getElementById('cart-count-desktop');
+        const cartCountMobileSpan = document.getElementById('cart-count-mobile');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const cartOverlay = document.getElementById('cart-overlay');
+        const closeCartBtn = document.getElementById('close-cart');
+        const openCartDesktopBtn = document.getElementById('open-cart-desktop');
+        const openCartMobileBtn = document.getElementById('open-cart-mobile');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotalSpan = document.getElementById('cart-total');
+        const clearCartBtn = document.getElementById('clear-cart');
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        // Toggle mobile menu
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initialize cart from localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            if (totalItems > 0) {
+                cartCountDesktopSpan.textContent = totalItems;
+                cartCountMobileSpan.textContent = totalItems;
+                cartCountDesktopSpan.classList.remove('hidden');
+                cartCountMobileSpan.classList.remove('hidden');
+            } else {
+                cartCountDesktopSpan.classList.add('hidden');
+                cartCountMobileSpan.classList.add('hidden');
+            }
+        }
+
+        function calculateCartTotal() {
+            return cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
+        }
+
+        function renderCartItems() {
+            cartItemsContainer.innerHTML = ''; // Clear existing items
+            if (cart.length === 0) {
+                emptyCartMessage.classList.remove('hidden');
+                cartTotalSpan.textContent = '$0.00';
+                return;
+            } else {
+                emptyCartMessage.classList.add('hidden');
+            }
+
+            cart.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('flex', 'justify-between', 'items-center', 'py-2', 'border-b');
+                itemDiv.innerHTML = `
+                    <div>
+                        <p class="font-semibold">${item.name}</p>
+                        <p class="text-sm text-gray-600">$${item.price.toFixed(2)} x ${item.quantity}</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="quantity-btn bg-gray-200 text-gray-700 px-2 rounded" data-id="${item.id}" data-action="decrement">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="quantity-btn bg-gray-200 text-gray-700 px-2 rounded" data-id="${item.id}" data-action="increment">+</button>
+                        <button class="remove-from-cart-btn text-red-500 hover:text-red-700 ml-2" data-id="${item.id}">&times;</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(itemDiv);
+            });
+            cartTotalSpan.textContent = `$${calculateCartTotal()}`;
+        }
+
+        function addToCart(productId, productName, productPrice) {
+            const price = parseFloat(productPrice);
+            if (isNaN(price)) {
+                console.error('Invalid product price:', productPrice);
+                return;
+            }
+
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: productName,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            renderCartItems(); // Update cart display immediately
+            // Optionally, open the cart sidebar when an item is added
+            openCartSidebar();
+        }
+
+        function updateQuantity(productId, action) {
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            if (itemIndex > -1) {
+                if (action === 'increment') {
+                    cart[itemIndex].quantity++;
+                } else if (action === 'decrement') {
+                    cart[itemIndex].quantity--;
+                    if (cart[itemIndex].quantity <= 0) {
+                        cart.splice(itemIndex, 1); // Remove item if quantity is 0 or less
+                    }
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                renderCartItems();
+            }
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            renderCartItems();
+        }
+
+        function clearCart() {
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            renderCartItems();
+            alert('Cart has been cleared!');
+        }
+
+        function openCartSidebar() {
+            cartSidebar.classList.add('open');
+            cartOverlay.classList.add('open');
+            renderCartItems(); // Ensure cart is rendered when opened
+        }
+
+        function closeCartSidebar() {
+            cartSidebar.classList.remove('open');
+            cartOverlay.classList.remove('open');
+        }
+
+        function filterProducts(category) {
+            productCards.forEach(card => {
+                const productCategory = card.dataset.category;
+                if (category === 'all' || productCategory === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Event Listeners for Add to Cart Buttons
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const productId = event.target.dataset.productId;
+                const productName = event.target.dataset.productName;
+                const productPrice = event.target.dataset.productPrice;
+                addToCart(productId, productName, productPrice);
+            });
+        });
+
+        // Event Listeners for Cart Sidebar
+        openCartDesktopBtn.addEventListener('click', openCartSidebar);
+        openCartMobileBtn.addEventListener('click', openCartSidebar);
+        closeCartBtn.addEventListener('click', closeCartSidebar);
+        cartOverlay.addEventListener('click', closeCartSidebar); // Close cart when clicking outside
+
+        clearCartBtn.addEventListener('click', clearCart);
+
+        cartItemsContainer.addEventListener('click', (event) => {
+            if (event.target.classList.contains('quantity-btn')) {
+                const productId = event.target.dataset.id;
+                const action = event.target.dataset.action;
+                updateQuantity(productId, action);
+            } else if (event.target.classList.contains('remove-from-cart-btn')) {
+                const productId = event.target.dataset.id;
+                removeFromCart(productId);
+            }
+        });
+
+        // Event Listeners for Category Filter Buttons
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active', 'bg-blue-600', 'text-white'));
+                filterButtons.forEach(btn => {
+                    if (!btn.classList.contains('active')) {
+                        btn.classList.add('bg-gray-200', 'text-gray-700');
+                    }
+                });
+
+                // Add active class to the clicked button
+                button.classList.add('active', 'bg-blue-600', 'text-white');
+                button.classList.remove('bg-gray-200', 'text-gray-700');
+
+                const category = button.dataset.category;
+                filterProducts(category);
+            });
+        });
+
+        // Initial cart count update and render on page load
+        updateCartCount();
+        renderCartItems();
+        // Initially show all products
+        filterProducts('all');
+    });
+</script>
+
+</body>
+</html>
